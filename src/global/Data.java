@@ -2,6 +2,9 @@ package global;
 
 import cafe.Coffee;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Data {
-    public static Coffee[] coffees = new Coffee[5];
+    public static List<Coffee> coffees = new ArrayList<>();
 }

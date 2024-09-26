@@ -2,11 +2,13 @@ package controller;
 
 import cafe.Coffee;
 import global.Utils;
+import service.CafeService;
 
 
 import static global.Data.coffees;
 import static global.Utils.sc;
 
+// joystick
 public class CafeController {
     public static CafeController getInstance(){
         if(cafeController == null){
@@ -14,29 +16,21 @@ public class CafeController {
         }
         return cafeController;
     }
-
     private static CafeController cafeController;
 
-    private CafeController() {}
+    private CafeController() {
+        cafeService = CafeService.getInstance();
+    }
 
-
-    public void addCoffee(int i){
+    private final CafeService cafeService;
+    public void addCoffee(){
         String st = sc.nextLine();
         String[] strings = st.split(" ");
-
-        // 생성하기위한 처리
-        try {
-            Coffee coffee = Coffee.of(strings);
-            coffees[i] = coffee;
-        }catch (NumberFormatException e){
-            System.out.println("가격 입력 똑바로");
-            i--;
-        }catch (IllegalArgumentException e){
-            System.out.println("타입 똑바로");
-            i--;
-        }
+        cafeService.coffeeAdd(strings);
     }
-    public void removeCoffee(int i){
-
+    public void removeCoffee(){
+        String st = sc.nextLine();
+        cafeService.coffeeAdd(new String[]{"fds","fds"});
     }
+
 }
