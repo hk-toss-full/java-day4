@@ -6,12 +6,13 @@ public class Coffee {
     private SeasonType season; // 봄 여름 가을 겨울 올
     private CategoryType category; // 커피 티 에이드
 //  팩토리 메서드
+//   IllegalArgumentException :  No enum constant cafe.CategoryType.커피1  타입 입력 똑바로 하세요
+//    NumberFormatException: For input string: "3000d" 가격 입력 똑바로 하세요
     public static Coffee of(String[] strings){
         String name = strings[0];
         int price = Integer.parseInt(strings[1]);
         SeasonType season = SeasonType.valueOf(strings[2]);
         CategoryType category = CategoryType.valueOf(strings[3]);
-//        if(!category.equals("커피")) return null;
         return new Coffee(name, price, season, category);
     }
 
