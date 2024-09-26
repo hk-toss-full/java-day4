@@ -3,19 +3,19 @@ package cafe;
 public class Coffee {
     private String name;
     private int price;
-    private String season; // 봄 여름 가을 겨울 올
-    private String category; // 커피 티 에이드
+    private SeasonType season; // 봄 여름 가을 겨울 올
+    private CategoryType category; // 커피 티 에이드
 //  팩토리 메서드
     public static Coffee of(String[] strings){
         String name = strings[0];
         int price = Integer.parseInt(strings[1]);
-        String season = strings[2];
-        String category = strings[3];
-        if(!category.equals("커피")) return null;
+        SeasonType season = SeasonType.valueOf(strings[2]);
+        CategoryType category = CategoryType.valueOf(strings[3]);
+//        if(!category.equals("커피")) return null;
         return new Coffee(name, price, season, category);
     }
 
-    private Coffee(String name, int price, String season, String category) {
+    public Coffee(String name, int price, SeasonType season, CategoryType category) {
         this.name = name;
         this.price = price;
         this.season = season;
@@ -40,11 +40,11 @@ public class Coffee {
         return price;
     }
 
-    public String getSeason() {
+    public SeasonType getSeason() {
         return season;
     }
 
-    public String getCategory() {
+    public CategoryType getCategory() {
         return category;
     }
 }
