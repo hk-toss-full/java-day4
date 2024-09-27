@@ -1,15 +1,18 @@
 package service;
 
 import cafe.Coffee;
-import controller.CafeController;
 import repository.CafeRepository;
 
-import static global.Data.coffees;
+import java.util.List;
 
 // service 유저의 입력으로 나의 로직을 처리하는 곳
 // 개발자가 로직을 펼치는 곳?
 // Coffee 라고 했어야함
 public class CafeService {
+    public List<Coffee> getAllCoffees(){
+        System.out.println("음 ........");
+        return cafeRepository.findAllCoffees();
+    }
     public void coffeeAdd(String[] strings){
         // 유저에게 입력 받는 것으로 생성하기 위한 로직
         try {
